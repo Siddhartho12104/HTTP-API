@@ -2,6 +2,21 @@
 <html>
 <head>
 	<title>Caching</title>
+	<style type="text/css">
+		div.ex1 {
+    	font: 15px arial, sans-serif;
+    	background: lightgreen;
+		}
+
+		div.ex2 {
+    	font: italic bold 12px/30px Georgia, serif;
+    	background: lightblue;
+		}
+
+		div.ex3 {
+    	font: italic bold 12px/30px Georgia, serif;
+		}
+	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -17,7 +32,7 @@
     	var mod = angular.module("myApp", []);
     	mod.controller("myCtrl", function($scope, $cacheFactory){
     	$scope.keys = [];
-    	$scope.cache = $cacheFactory('cacheId');
+    	$scope.cache = $cacheFactory('ID');
     	$scope.put = function(key, value){
     		if(angular.isUndefined($scope.cache.get(key))){
     			$scope.cache.put(key,value);
@@ -40,32 +55,38 @@
 <body ng-app="myApp">
 <br><br><br>
 <div class="container" ng-controller="myCtrl">
-	Key:<input type="text" name="tb1" ng-model="cacheKey">
-	<br>
-	Value:<input type="text" name="tb1" ng-model="cacheValue">
+	<b>Enter key: </b><input type="text" name="ip1" ng-model="Key">
+	&nbsp&nbsp
+	<b>Enter value: </b><input type="text" name="ip1" ng-model="Value">
 
-	<button type="button" ng-click="put(cacheKey, cacheValue)">Cache</button>
-<!-- 	<button type="button" ng-click="remove(cacheKey, cacheValue)">Cache</button>
- -->
+	<button type="button" ng-click="put(Key, Value)">Cache</button>
+ 
 	<hr>
-	<h3>Cached Values</h3>
+	<h3><font face="ariel">Cached Values</font></h3>
+	<div class="ex1">
 	<div ng-repeat="key in keys">
 		<span ng-bind="key"></span>:
 		<b ng-bind="cache.get(key)"></b>
 	</div>
+	</div>
 	<hr>
-	<h3>Cache Information</h3> 
+	<h3><font face="ariel">Cache Information</font></h3> 
+	<div class="ex2">
 	<div ng-repeat="(key, value) in cache.info()">
 		<span ng-bind="key"></span>:
 		<b ng-bind="value"></b>
 	</div>
+	</div>
 	<hr>
-	<h3>Deletion</h3>
-	<input type="text" name="tb3" ng-model="remCacheKey">
+	<h3><font face="ariel">Delete Operations</font></h3>
+	<br>
+	<div class="ex3">
+	<b>Enter key: </b><input type="text" name="ip2" ng-model="remCacheKey">
 	<button type="button" ng-click="remove(remCacheKey)">Remove</button>
+	<br><br>
 	<button type="button" ng-click="removeAll()">RemoveAll</button>
 	<button type="button" ng-click="destroy()">Destroy</button>
-
+	</div>
 </div>
 </body>
 </html>
