@@ -1,0 +1,30 @@
+[
+    {
+            "player":"Ozil",
+            "club":"Arsenal"
+        },
+        {
+            "player":"Aguero",
+            "club":"Man City"
+        },
+        {
+            "player":"Vardy",
+            "club":"Leicester"
+        },
+        {
+            "player":"Griezmann",
+            "club":"Atletico"
+        },
+        {
+            "player":"Kroos",
+            "club":"Real Madrid"
+        },
+        {
+            "player":"Muller",
+            "club":"Bayern Munich"
+        },
+        {
+            "player":"Pogba",
+            "club":"Juventus"
+        }
+]
